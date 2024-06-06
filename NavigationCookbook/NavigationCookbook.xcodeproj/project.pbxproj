@@ -16,23 +16,17 @@
 		AD231267283EF16900254BBF /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A796127FD4409009CCB40 /* NavigationModel.swift */; };
 		AD231268283EF16900254BBF /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A797D27FF6350009CCB40 /* Recipe.swift */; };
 		AD23126A283EF16900254BBF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D613FD427FB91380018C5F3 /* ContentView.swift */; };
-		AD23126B283EF16900254BBF /* ExperienceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A797027FF5ED9009CCB40 /* ExperienceButton.swift */; };
-		AD23126C283EF16900254BBF /* ExperiencePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A796427FD4550009CCB40 /* ExperiencePicker.swift */; };
 		AD23126D283EF16900254BBF /* RecipeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A798027FF7731009CCB40 /* RecipeDetail.swift */; };
 		AD23126F283EF16900254BBF /* RecipePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4B1108282471950010C99B /* RecipePhoto.swift */; };
 		AD231270283EF16900254BBF /* RecipeTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEE8D3280DD0F10054F7BD /* RecipeTile.swift */; };
 		AD231271283EF16900254BBF /* StackContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A796727FD4EBE009CCB40 /* StackContentView.swift */; };
-		AD231275283EF6E600254BBF /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD231274283EF6E600254BBF /* Experience.swift */; };
 		AD231277283EF84400254BBF /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD231276283EF84400254BBF /* ContinueButton.swift */; };
-		AD231279283EFD7D00254BBF /* ExperiencePickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD231278283EFD7D00254BBF /* ExperiencePickerRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4D4B1108282471950010C99B /* RecipePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePhoto.swift; sourceTree = "<group>"; };
 		4D5A796127FD4409009CCB40 /* NavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
-		4D5A796427FD4550009CCB40 /* ExperiencePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencePicker.swift; sourceTree = "<group>"; };
 		4D5A796727FD4EBE009CCB40 /* StackContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackContentView.swift; sourceTree = "<group>"; };
-		4D5A797027FF5ED9009CCB40 /* ExperienceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceButton.swift; sourceTree = "<group>"; };
 		4D5A797427FF629F009CCB40 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		4D5A797727FF62E9009CCB40 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4D5A797A27FF6329009CCB40 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -45,9 +39,7 @@
 		AD231257283EED1200254BBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD231259283EED1200254BBF /* NavigationCookbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NavigationCookbook.entitlements; sourceTree = "<group>"; };
 		AD23125B283EED1200254BBF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AD231274283EF6E600254BBF /* Experience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experience.swift; sourceTree = "<group>"; };
 		AD231276283EF84400254BBF /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
-		AD231278283EFD7D00254BBF /* ExperiencePickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencePickerRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +103,6 @@
 			children = (
 				4D613FD427FB91380018C5F3 /* ContentView.swift */,
 				AD231276283EF84400254BBF /* ContinueButton.swift */,
-				4D5A797027FF5ED9009CCB40 /* ExperienceButton.swift */,
-				4D5A796427FD4550009CCB40 /* ExperiencePicker.swift */,
-				AD231278283EFD7D00254BBF /* ExperiencePickerRow.swift */,
 				4D5A798027FF7731009CCB40 /* RecipeDetail.swift */,
 				4D4B1108282471950010C99B /* RecipePhoto.swift */,
 				4DCEE8D3280DD0F10054F7BD /* RecipeTile.swift */,
@@ -127,7 +116,6 @@
 			children = (
 				4D5A797727FF62E9009CCB40 /* Category.swift */,
 				4D5A797427FF629F009CCB40 /* DataModel.swift */,
-				AD231274283EF6E600254BBF /* Experience.swift */,
 				4D5A797A27FF6329009CCB40 /* Ingredient.swift */,
 				4D5A796127FD4409009CCB40 /* NavigationModel.swift */,
 				4D5A797D27FF6350009CCB40 /* Recipe.swift */,
@@ -213,12 +201,8 @@
 				AD231267283EF16900254BBF /* NavigationModel.swift in Sources */,
 				AD231268283EF16900254BBF /* Recipe.swift in Sources */,
 				AD23126A283EF16900254BBF /* ContentView.swift in Sources */,
-				AD231275283EF6E600254BBF /* Experience.swift in Sources */,
-				AD23126B283EF16900254BBF /* ExperienceButton.swift in Sources */,
-				AD23126C283EF16900254BBF /* ExperiencePicker.swift in Sources */,
 				AD23126D283EF16900254BBF /* RecipeDetail.swift in Sources */,
 				AD23126F283EF16900254BBF /* RecipePhoto.swift in Sources */,
-				AD231279283EFD7D00254BBF /* ExperiencePickerRow.swift in Sources */,
 				AD231270283EF16900254BBF /* RecipeTile.swift in Sources */,
 				AD231271283EF16900254BBF /* StackContentView.swift in Sources */,
 				AD231277283EF84400254BBF /* ContinueButton.swift in Sources */,

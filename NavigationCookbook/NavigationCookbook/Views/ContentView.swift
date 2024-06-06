@@ -9,19 +9,14 @@
 import SwiftUI
 
 struct ContentView: View {
-	@SceneStorage("experience") private var experience: Experience?
 	@SceneStorage("navigation") private var navigationData: Data?
 	@StateObject private var navigationModel = NavigationModel()
-	@State private var showExperiencePicker = false
 	
 	var body: some View {
 		Group {
-			StackContentView(showExperiencePicker: $showExperiencePicker)
+			StackContentView()
 		}
 		.environmentObject(navigationModel)
-		.sheet(isPresented: $showExperiencePicker) {
-			ExperiencePicker(experience: $experience)
-		}
 		.task {
 			if let jsonData = navigationData {
 				navigationModel.jsonData = jsonData
