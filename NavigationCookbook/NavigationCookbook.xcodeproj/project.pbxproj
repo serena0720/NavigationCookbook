@@ -16,6 +16,7 @@
 		AD23126F283EF16900254BBF /* RecipePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4B1108282471950010C99B /* RecipePhoto.swift */; };
 		AD231270283EF16900254BBF /* RecipeTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEE8D3280DD0F10054F7BD /* RecipeTile.swift */; };
 		B3C78FCF2C11FA7E0033F872 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B3C78FCE2C11FA7E0033F872 /* ComposableArchitecture */; };
+		B3C78FEA2C14860C0033F872 /* ImageSearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C78FE92C14860C0033F872 /* ImageSearchClient.swift */; };
 		D23D88AA2C13FB8300227F33 /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D88A92C13FB8300227F33 /* RecipeError.swift */; };
 		D23D88C22C1458FD00227F33 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D88C12C1458FD00227F33 /* DataManager.swift */; };
 		D23D88C42C14597D00227F33 /* DataMangerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D88C32C14597D00227F33 /* DataMangerError.swift */; };
@@ -40,6 +41,7 @@
 		AD231257283EED1200254BBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD231259283EED1200254BBF /* NavigationCookbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NavigationCookbook.entitlements; sourceTree = "<group>"; };
 		AD23125B283EED1200254BBF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B3C78FE92C14860C0033F872 /* ImageSearchClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchClient.swift; sourceTree = "<group>"; };
 		D23D88A92C13FB8300227F33 /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
 		D23D88C12C1458FD00227F33 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D23D88C32C14597D00227F33 /* DataMangerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMangerError.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				4D613FD327FB91380018C5F3 /* NavigationCookbookApp.swift */,
+				B3C78FE62C1485F80033F872 /* Services */,
 				AD231260283EEF6F00254BBF /* Resources */,
 				AD231262283EEFA000254BBF /* Models */,
 				D23D88C02C1458CF00227F33 /* Manager */,
@@ -134,6 +137,14 @@
 				D23D88C82C145D4200227F33 /* BuiltInRecipes.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B3C78FE62C1485F80033F872 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B3C78FE92C14860C0033F872 /* ImageSearchClient.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D23D88A82C13FB7500227F33 /* Error */ = {
@@ -267,6 +278,7 @@
 			files = (
 				AD231263283EF16900254BBF /* NavigationCookbookApp.swift in Sources */,
 				D23D88D82C14655400227F33 /* RecipeDetailView.swift in Sources */,
+				B3C78FEA2C14860C0033F872 /* ImageSearchClient.swift in Sources */,
 				D23D88D12C14648000227F33 /* StackContentFeature.swift in Sources */,
 				D23D88CC2C14640500227F33 /* NavigationFeature.swift in Sources */,
 				D23D88C92C145D4200227F33 /* BuiltInRecipes.swift in Sources */,
@@ -423,7 +435,7 @@
 				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad[sdk=iphonesimulator*]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone[sdk=iphoneos*]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone[sdk=iphonesimulator*]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -432,7 +444,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -459,7 +472,7 @@
 				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad[sdk=iphonesimulator*]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone[sdk=iphoneos*]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone[sdk=iphonesimulator*]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -468,7 +481,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -10,7 +10,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct NavigationView: View {
-  let store: StoreOf<NavigationFeature>
+  @Binding var store: StoreOf<NavigationFeature>
   
   var body: some View {
     NavigationStackStore(self.store.scope(state: \.path, action: { .path($0) })) {
