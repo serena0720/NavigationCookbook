@@ -21,6 +21,7 @@
 		AD231271283EF16900254BBF /* StackContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A796727FD4EBE009CCB40 /* StackContentView.swift */; };
 		B3C78FCF2C11FA7E0033F872 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B3C78FCE2C11FA7E0033F872 /* ComposableArchitecture */; };
 		D23D88AA2C13FB8300227F33 /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D88A92C13FB8300227F33 /* RecipeError.swift */; };
+		D23D88AC2C141A4E00227F33 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D88AB2C141A4E00227F33 /* Navigation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		AD231259283EED1200254BBF /* NavigationCookbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NavigationCookbook.entitlements; sourceTree = "<group>"; };
 		AD23125B283EED1200254BBF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D23D88A92C13FB8300227F33 /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
+		D23D88AB2C141A4E00227F33 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		AD231261283EEF8200254BBF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D23D88AB2C141A4E00227F33 /* Navigation.swift */,
 				4D5A798027FF7731009CCB40 /* RecipeDetail.swift */,
 				4D4B1108282471950010C99B /* RecipePhoto.swift */,
 				4DCEE8D3280DD0F10054F7BD /* RecipeTile.swift */,
@@ -212,6 +215,7 @@
 				AD231265283EF16900254BBF /* DataModel.swift in Sources */,
 				AD231266283EF16900254BBF /* Ingredient.swift in Sources */,
 				AD231267283EF16900254BBF /* NavigationModel.swift in Sources */,
+				D23D88AC2C141A4E00227F33 /* Navigation.swift in Sources */,
 				AD231268283EF16900254BBF /* Recipe.swift in Sources */,
 				D23D88AA2C13FB8300227F33 /* RecipeError.swift in Sources */,
 				AD23126D283EF16900254BBF /* RecipeDetail.swift in Sources */,
