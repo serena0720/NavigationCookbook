@@ -9,21 +9,18 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct RecipeDetailView<Link: View>: View {
+struct RecipeDetailView: View {
   typealias RecipeState = RecipeDetailFeature.State
   typealias RecipeAction = RecipeDetailFeature.Action
   
   let store: StoreOf<RecipeDetailFeature>
-  var relatedLink: (Recipe) -> Link
-  
   
   var body: some View {
     WithViewStore(self.store, observe: { ($0) }) { viewStore in
       ZStack {
         if viewStore.recipe != nil {
           Content(
-            store: self.store,
-            relatedLink: relatedLink
+            store: self.store
           )
         } else {
           Text("Choose a recipe")
@@ -38,12 +35,11 @@ struct RecipeDetailView<Link: View>: View {
 }
 
 // MARK: - CustomViews
-private struct Content<Link: View>: View {
+private struct Content: View {
   typealias RecipeState = RecipeDetailFeature.State
   typealias RecipeAction = RecipeDetailFeature.Action
   
   let store: Store<RecipeState, RecipeAction>
-  var relatedLink: (Recipe) -> Link
   
   var body: some View {
     WithViewStore(self.store, observe: { ($0) }) { viewStore in
@@ -61,13 +57,12 @@ private struct Content<Link: View>: View {
   private var wideDetails: some View {
     WithViewStore(self.store, observe: { ($0) }) { viewStore in
       VStack(alignment: .leading) {
-        title
         HStack(alignment: .top) {
           image
           ingredients
           Spacer()
         }
-        relatedRecipes
+//        relatedRecipes
       }
     }
   }
@@ -77,16 +72,11 @@ private struct Content<Link: View>: View {
       let alignment: HorizontalAlignment = .center
       
       return VStack(alignment: alignment) {
-        title
         image
         ingredients
-        relatedRecipes
+//        relatedRecipes
       }
     }
-  }
-  
-  private var title: some View {
-    EmptyView()
   }
   
   private var image: some View {
@@ -118,7 +108,7 @@ private struct Content<Link: View>: View {
   }
   
   var relatedRecipes: some View {
-    WithViewStore(self.store) { viewStore in
+    WithViewStore(self.store, observe: { ($0) }) { viewStore in
       let padding = EdgeInsets(top: 16, leading: 0, bottom: 8, trailing: 0)
       
       if let recipe = viewStore.recipe,
@@ -128,12 +118,12 @@ private struct Content<Link: View>: View {
             .font(.headline)
             .padding(padding)
           LazyVGrid(columns: columns, alignment: .leading) {
-            let relatedRecipes = recipe
-              .filter { recipe.related.contains($0.id) }
-              .sorted { $0.name < $1.name }
-            ForEach(relatedRecipes) { relatedRecipe in
-              relatedLink(relatedRecipe)
-            }
+//            let relatedRecipes = recipe
+//              .filter { recipe.related.contains($0.id) }
+//              .sorted { $0.name < $1.name }
+//            ForEach(relatedRecipes) { relatedRecipe in
+//              relatedLink(relatedRecipe)
+//            }
           }
         }
       }
@@ -151,10 +141,6 @@ private struct Content<Link: View>: View {
     RecipeDetailView(store: Store(initialState: RecipeDetailFeature.State(), reducer: {
       RecipeDetailFeature()
         ._printChanges()
-    }), relatedLink: link)
-  }
-  
-  func link(recipe: Recipe) -> some View {
-    EmptyView()
+    }))
   }
 }

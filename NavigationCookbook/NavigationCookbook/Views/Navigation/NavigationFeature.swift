@@ -9,7 +9,9 @@
 import SwiftUI
 import ComposableArchitecture
 
+@Reducer
 struct NavigationFeature: Reducer {
+	@ObservableState
   struct State: Equatable {
     var path = StackState<Path.State>()
     var stackContent = StackContentFeature.State()
@@ -19,7 +21,9 @@ struct NavigationFeature: Reducer {
     case stackContent(StackContentFeature.Action)
   }
   
+	@Reducer
   struct Path: Reducer {
+		@ObservableState
     enum State: Equatable {
       case recipeDetail(RecipeDetailFeature.State)
     }
@@ -52,5 +56,8 @@ struct NavigationFeature: Reducer {
         return .none
       }
     }
+		.forEach(\.path, action: \.path) {
+			Path()
+		}
   }
 }

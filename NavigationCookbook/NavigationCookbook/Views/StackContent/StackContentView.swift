@@ -13,28 +13,23 @@ struct StackContentView: View {
   let store: Store<StackContentFeature.State, StackContentFeature.Action>
   
   var body: some View {
-    WithViewStore(self.store, observe: { ($0) }) { viewStore in
-      NavigationStack(path: viewStore.binding(
-        get: \.recipePath,
-        send: StackContentFeature.Action.selectRecipe
-      )) {
-        List(Category.allCases) { category in
-          Section {
-            ForEach(viewStore.recipesByCategory[category] ?? []) { recipe in
-              NavigationLink(recipe.name, value: recipe)
-            }
-          } header: {
-            Text(category.localizedName)
-          }
-        }
-        .navigationTitle("Categories")
-        .navigationDestination(for: Recipe.self) { relatedRecipe in
-          NavigationLink(value: relatedRecipe) {
-            RecipeTile(recipe: relatedRecipe)
-          }
-          .buttonStyle(.plain)
-        }
-      }
+		WithViewStore(self.store, observe: { ($0) }) { viewStore in
+			List(Category.allCases) { category in
+				Section {
+					ForEach(viewStore.recipesByCategory[category] ?? []) { recipe in
+						NavigationLink(recipe.name, value: recipe)
+					}
+				} header: {
+					Text(category.localizedName)
+				}
+			}
+			.navigationTitle("Categories")
+			.navigationDestination(for: Recipe.self) { relatedRecipe in
+				NavigationLink(value: relatedRecipe) {
+					RecipeTile(recipe: relatedRecipe)
+				}
+				.buttonStyle(.plain)
+			}
     }
   }
 }
