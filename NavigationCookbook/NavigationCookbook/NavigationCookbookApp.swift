@@ -7,12 +7,29 @@
  */
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct NavigationCookbookApp: App {
-	var body: some Scene {
-		WindowGroup {
-			ContentView()
-		}
-	}
+  var body: some Scene {
+    WindowGroup {
+      let mock = Recipe.mock
+      
+      NavigationView(
+        store: Store(
+          initialState: NavigationFeature.State(
+            path: StackState([
+              // MARK: - Mock Data
+            ]),
+            stackContent: StackContentFeature.State(
+              // MARK: - Mock Data
+            )
+          )
+        ) {
+          NavigationFeature()
+            ._printChanges()
+        }
+      )
+    }
+  }
 }
