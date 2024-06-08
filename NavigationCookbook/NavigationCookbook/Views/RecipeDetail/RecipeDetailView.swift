@@ -10,34 +10,20 @@ import SwiftUI
 import ComposableArchitecture
 
 struct RecipeDetailView: View {
-  typealias RecipeState = RecipeDetailFeature.State
-  typealias RecipeAction = RecipeDetailFeature.Action
-  
-  let store: StoreOf<RecipeDetailFeature>
+  @Bindable var store: StoreOf<RecipeDetailFeature>
   
   var body: some View {
     ZStack {
-      if store.recipe != nil {
         Content(
           store: self.store
         )
-      } else {
-        Text("Choose a recipe")
-          .onAppear {
-            store.send(.showAlert(RecipeError.noneRecipe.description))
-          }
-          .navigationTitle("")
-      }
     }
   }
 }
 
 // MARK: - CustomViews
 private struct Content: View {
-  typealias RecipeState = RecipeDetailFeature.State
-  typealias RecipeAction = RecipeDetailFeature.Action
-  
-  let store: Store<RecipeState, RecipeAction>
+  @Bindable var store: StoreOf<RecipeDetailFeature>
   
   var body: some View {
     ScrollView {
@@ -47,7 +33,7 @@ private struct Content: View {
       }
       .padding()
     }
-    .navigationTitle(store.recipe?.name ?? "무제")
+    .navigationTitle(store.recipe.name)
   }
   
   private var wideDetails: some View {
@@ -57,6 +43,7 @@ private struct Content: View {
         ingredients
         Spacer()
       }
+			relatedRecipes
     }
   }
   
@@ -66,17 +53,15 @@ private struct Content: View {
     return VStack(alignment: alignment) {
       image
       ingredients
+			relatedRecipes
     }
   }
   
   @ViewBuilder
   private var image: some View {
-    if let recipe = store.recipe {
-      RecipePhoto(recipe: recipe)
+		RecipePhoto(recipe: store.recipe)
         .frame(width: 300, height: 300)
-    } else {
-      EmptyView()
-    }
+    
   }
   
   private var ingredients: some View {
@@ -87,11 +72,9 @@ private struct Content: View {
         .font(.headline)
         .padding(padding)
       VStack(alignment: .leading) {
-        if let recipe = store.recipe {
-          ForEach(recipe.ingredients) { ingredient in
+				ForEach(store.recipe.ingredients) { ingredient in
             Text(ingredient.description)
           }
-        }
       }
     }
     .frame(minWidth: 300, alignment: .leading)
@@ -101,19 +84,30 @@ private struct Content: View {
   var relatedRecipes: some View {
     let padding = EdgeInsets(top: 16, leading: 0, bottom: 8, trailing: 0)
     
-    if let recipe = store.recipe,
-       !recipe.related.isEmpty {
+		if !store.recipe.related.isEmpty {
       VStack(alignment: .leading) {
         Text("Related Recipes")
           .font(.headline)
           .padding(padding)
         LazyVGrid(columns: columns, alignment: .leading) {
+					let relatedRecipes = getRelatedRecipes(with: store.recipes, for: store.recipe)
+					ForEach(relatedRecipes) { relatedRecipe in
+						NavigationLink(state: NavigationFeature.Path.State.recipeDetail(.init(recipe: relatedRecipe))) {
+							RecipeTile(recipe: relatedRecipe)
+						}
+					}
         }
       }
     } else {
       EmptyView()
     }
   }
+	
+	func getRelatedRecipes(with recipes: [Recipe], for recipe: Recipe) -> [Recipe] {
+		recipes
+				.filter { recipe.related.contains($0.id) }
+				.sorted { $0.name < $1.name }
+	}
   
   private var columns: [GridItem] {
     [ GridItem(.adaptive(minimum: 120, maximum: 120)) ]
@@ -123,7 +117,7 @@ private struct Content: View {
 // MARK: - Preview
 #Preview {
   return Group {
-    RecipeDetailView(store: Store(initialState: RecipeDetailFeature.State(), reducer: {
+		RecipeDetailView(store: Store(initialState: RecipeDetailFeature.State(recipe: .mock), reducer: {
       RecipeDetailFeature()
         ._printChanges()
     }))

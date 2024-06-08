@@ -10,25 +10,19 @@ import SwiftUI
 import ComposableArchitecture
 
 struct StackContentView: View {
-  let store: Store<StackContentFeature.State, StackContentFeature.Action>
+  @Bindable var store: Store<StackContentFeature.State, StackContentFeature.Action>
   
   var body: some View {
     List(Category.allCases) { category in
       Section {
 				ForEach(getRecipes(recipes: store.recipes, for: category)) { recipe in
-          NavigationLink(recipe.name, value: recipe)
+					NavigationLink(recipe.name, state: NavigationFeature.Path.State.recipeDetail(.init(recipe: recipe)))
         }
       } header: {
         Text(category.localizedName)
       }
     }
     .navigationTitle("Categories")
-    .navigationDestination(for: Recipe.self) { relatedRecipe in
-      NavigationLink(value: relatedRecipe) {
-        RecipeTile(recipe: relatedRecipe)
-      }
-      .buttonStyle(.plain)
-    }
   }
 	
 	func getRecipes(recipes: [Recipe], for category: Category) -> [Recipe] {

@@ -13,8 +13,15 @@ import ComposableArchitecture
 struct RecipeDetailFeature: Reducer {
   @ObservableState
   struct State: Equatable {
-    var recipe: Recipe?
+    var recipe: Recipe
+		var recipes: [Recipe]
     var alert: AlertState<Action>?
+		
+		init(recipe: Recipe, recipes: [Recipe] = BuiltInRecipes.examples, alert: AlertState<Action>? = nil) {
+			self.recipe = recipe
+			self.recipes = recipes
+			self.alert = alert
+		}
   }
   
   enum Action: Equatable {
