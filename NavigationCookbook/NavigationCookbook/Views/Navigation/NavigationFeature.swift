@@ -1,5 +1,5 @@
 //
-//  Navigation.swift
+//  NavigationFeature.swift
 //  NavigationCookbook
 //
 //  Created by Hyun A Song on 6/8/24.
@@ -9,7 +9,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-// MARK: - NavigationReducer
 struct NavigationFeature: Reducer {
   struct State: Equatable {
     var path = StackState<Path.State>()
@@ -26,7 +25,7 @@ struct NavigationFeature: Reducer {
     }
     enum Action: Equatable {
       case recipeDetail(RecipeDetailFeature.Action)
-    }  
+    }
     var body: some ReducerOf<Self> {
       Scope(state: /State.recipeDetail,
             action: /Action.recipeDetail) {
@@ -47,30 +46,4 @@ struct NavigationFeature: Reducer {
       }
     }
   }
-}
-
-// MARK: - NavigationView
-struct NavigationView: View {
-  let store: StoreOf<NavigationFeature>
-  
-  var body: some View {
-    NavigationStackStore(self.store.scope(state: \.path, action: { .path($0) })) {
-      StackContentView()
-    } destination: { state in
-      switch state {
-      case .recipeDetail:
-        CaseLet(/NavigationFeature.Path.State.recipeDetail(),
-                 action: NavigationFeature.Path.Action.recipeDetail(),
-                 then: RecipeDetail.init(store:))
-      }
-    }
-
-  }
-}
-
-// MARK: - CustomViews
-
-// MARK: - Preview
-#Preview {
-  NavigationView()
 }

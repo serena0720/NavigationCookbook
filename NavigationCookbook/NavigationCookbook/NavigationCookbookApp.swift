@@ -18,12 +18,8 @@ struct NavigationCookbookApp: App {
       NavigationView(
         store: Store(
           initialState: NavigationFeature.State(
-            path: StackState([
-              // MARK: - Mock Data
-            ]),
-            stackContent: StackContentFeature.State(
-              // MARK: - Mock Data
-            )
+            path: StackState([]),
+            stackContent: StackContentFeature.State()
           )
         ) {
           NavigationFeature()

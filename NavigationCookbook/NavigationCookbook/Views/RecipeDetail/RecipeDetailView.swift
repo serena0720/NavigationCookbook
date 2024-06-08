@@ -1,54 +1,15 @@
-/*
- See LICENSE folder for this sample’s licensing information.
- 
- Abstract:
- A detail view the app uses to display the metadata for a given recipe,
- as well as its related recipes.
- */
+//
+//  RecipeDetailView.swift
+//  NavigationCookbook
+//
+//  Created by Hyun A Song on 6/8/24.
+//  Copyright © 2024 Apple. All rights reserved.
+//
 
 import SwiftUI
 import ComposableArchitecture
 
-// MARK: - RecipeDetailReducer
-struct RecipeDetailFeature: Reducer {
-  struct State: Equatable {
-    var recipe: Recipe?
-    var alert: AlertState<Action>?
-  }
-  
-  enum Action: Equatable {
-    case selectRecipe(Recipe)
-    case delegate(Delegate)
-    case showAlert(String)
-    case dissmissAlert
-    
-    // NOTE: - Delegate 연습용
-    enum Delegate: Equatable {
-      case deleteRecipe(Recipe)
-    }
-  }
-  
-  var body: some ReducerOf<Self> {
-    Reduce { state, action in
-      switch action {
-      case let .selectRecipe(recipe):
-        state.recipe = recipe
-        return .none
-      case .delegate(_):
-          .none
-      case let .showAlert(message):
-        state.alert = AlertState(title: TextState(message))
-        return .none
-      case .dissmissAlert:
-        state.alert = nil
-        return .none
-      }
-    }
-  }
-}
-
-// MARK: - RecipeDetailView
-struct RecipeDetail<Link: View>: View {
+struct RecipeDetailView<Link: View>: View {
   typealias RecipeState = RecipeDetailFeature.State
   typealias RecipeAction = RecipeDetailFeature.Action
   
@@ -82,7 +43,6 @@ private struct Content<Link: View>: View {
   typealias RecipeAction = RecipeDetailFeature.Action
   
   let store: Store<RecipeState, RecipeAction>
-  var dataModel = DataModel.shared
   var relatedLink: (Recipe) -> Link
   
   var body: some View {
@@ -167,7 +127,9 @@ private struct Content<Link: View>: View {
             .font(.headline)
             .padding(padding)
           LazyVGrid(columns: columns, alignment: .leading) {
-            let relatedRecipes = dataModel.recipes(relatedTo: recipe)
+            let relatedRecipes = recipe
+              .filter { recipe.related.contains($0.id) }
+              .sorted { $0.name < $1.name }
             ForEach(relatedRecipes) { relatedRecipe in
               relatedLink(relatedRecipe)
             }
@@ -185,7 +147,7 @@ private struct Content<Link: View>: View {
 // MARK: - Preview
 #Preview {
   return Group {
-    RecipeDetail(store: Store(initialState: RecipeDetailFeature.State(), reducer: {
+    RecipeDetailView(store: Store(initialState: RecipeDetailFeature.State(), reducer: {
       RecipeDetailFeature()
         ._printChanges()
     }), relatedLink: link)

@@ -18,6 +18,6 @@ struct Recipe: Hashable, Identifiable {
 
 extension Recipe {
 	static var mock: Recipe {
-		DataModel.shared.recipeOfTheDay
+    BuiltInRecipes.examples.first!
 	}
 }
