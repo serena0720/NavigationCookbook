@@ -14,16 +14,14 @@ struct NavigationView: View {
   
   var body: some View {
     NavigationStackStore(self.store.scope(state: \.path, action: { .path($0) })) {
-      StackContentView()
+      StackContentView(store: Store(
+        initialState: StackContentFeature.State(),
+        reducer: {
+          StackContentFeature()
+        }))
     } destination: { state in
-      switch state {
-      case .recipeDetail:
-        CaseLet(/NavigationFeature.Path.State.recipeDetail(),
-                 action: NavigationFeature.Path.Action.recipeDetail(),
-                 then: RecipeDetail.init(store:))
-      }
     }
-
+    
   }
 }
 

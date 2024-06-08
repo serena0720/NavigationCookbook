@@ -42,7 +42,14 @@ struct NavigationFeature: Reducer {
     
     Reduce { state, action in
       switch action {
-      case .path(.element(id: _, action: .recipeDetail(.delegate(.deleteRecipe(<#T##Recipe#>)))))
+      case .path(.element(id: _, action: .recipeDetail)):
+        return .none
+      case .path(.popFrom(id: let id)):
+        return .none
+      case .path(.push(id: let id, state: let state)):
+        return .none
+      case .stackContent(_):
+        return .none
       }
     }
   }

@@ -14,8 +14,6 @@ struct DataManager {
 }
 
 extension DataManager: DependencyKey {
-  private var recipes = [Recipe]
-  
   static let liveValue = Self(
     load: { url in try Data(contentsOf: url) }
   )
@@ -26,11 +24,11 @@ extension DataManager: DependencyKey {
     }
   )
   
-  static var recipeOfTheDay {
+  static func findRecipeOfTheDay(at recipes: [Recipe]) -> Recipe {
     recipes.first!
   }
   
-  static func findRecipes(in category: Category?) -> [Recipe] {
+  static func findRecipes(at recipes: [Recipe], in category: Category?) -> [Recipe] {
     recipes
       .filter { $0.category == category }
       .sorted { $0.name < $1.name }

@@ -10,57 +10,38 @@ import SwiftUI
 import ComposableArchitecture
 
 struct StackContentView: View {
+  let store: Store<StackContentFeature.State, StackContentFeature.Action>
+  
   var body: some View {
-    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
+    WithViewStore(self.store, observe: { ($0) }) { viewStore in
+      NavigationStack(path: viewStore.binding(
+        get: \.recipePath,
+        send: StackContentFeature.Action.selectRecipe
+      )) {
+        List(Category.allCases) { category in
+          Section {
+            ForEach(viewStore.recipesByCategory[category] ?? []) { recipe in
+              NavigationLink(recipe.name, value: recipe)
+            }
+          } header: {
+            Text(category.localizedName)
+          }
+        }
+        .navigationTitle("Categories")
+        .navigationDestination(for: Recipe.self) { relatedRecipe in
+          NavigationLink(value: relatedRecipe) {
+            RecipeTile(recipe: relatedRecipe)
+          }
+          .buttonStyle(.plain)
+        }
+      }
+    }
   }
 }
 
 #Preview {
-  StackContentView(dataModel: .shared)
-    .environmentObject(NavigationModel())
-  
-  StackContentView(dataModel: .shared)
-    .environmentObject(NavigationModel(
-      selectedCategory: .dessert,
-      recipePath: [.mock]))
-}
-
-struct StackContentView: View {
-  @EnvironmentObject private var navigationModel: NavigationModel
-  var dataModel = DataModel.shared
-  
-  var body: some View {
-    NavigationStack(path: $navigationModel.recipePath) {
-      List(Category.allCases) { category in
-        Section {
-          ForEach(dataModel.recipes(in: category)) { recipe in
-            NavigationLink(recipe.name, value: recipe)
-          }
-        } header: {
-          Text(category.localizedName)
-        }
-      }
-      .navigationTitle("Categories")
-      .navigationDestination(for: Recipe.self) { relatedRecipe in
-        NavigationLink(value: relatedRecipe) {
-          RecipeTile(recipe: relatedRecipe)
-        }
-        .buttonStyle(.plain)
-      }
-    }
-  }
-  
-  func showRecipeOfTheDay() {
-    navigationModel.recipePath = [dataModel.recipeOfTheDay]
-  }
-  
-  func showCategories() {
-    navigationModel.recipePath.removeAll()
-  }
-}
-
-struct StackContentView_Previews: PreviewProvider {
-  static var previews: some View {
-
-  }
+  StackContentView(store: Store(initialState: StackContentFeature.State(), reducer: {
+    StackContentFeature()
+      ._printChanges()
+  }))
 }

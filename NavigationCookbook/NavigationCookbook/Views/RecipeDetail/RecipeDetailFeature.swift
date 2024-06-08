@@ -17,13 +17,8 @@ struct RecipeDetailFeature: Reducer {
   
   enum Action: Equatable {
     case selectRecipe(Recipe)
-    case delegate(Delegate)
     case showAlert(String)
     case dissmissAlert
-    
-    enum Delegate: Equatable {
-      case deleteRecipe(Recipe)
-    }
   }
   
   var body: some ReducerOf<Self> {
@@ -31,8 +26,6 @@ struct RecipeDetailFeature: Reducer {
       switch action {
       case let .selectRecipe(recipe):
         state.recipe = recipe
-        return .none
-      case .delegate(_):
         return .none
       case let .showAlert(message):
         state.alert = AlertState(title: TextState(message))

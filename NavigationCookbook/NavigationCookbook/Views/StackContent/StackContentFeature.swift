@@ -25,15 +25,15 @@ struct StackContentFeature: Reducer {
     Reduce { state, action in
       switch action {
       case let .selectCategory(category):
-        state.recipesByCategory[category] = DataManager.findRecipes(in: category)
+        state.recipesByCategory[category] = DataManager.findRecipes(at: BuiltInRecipes.examples, in: category)
         return .none
       case let .selectRecipe(recipe):
         state.recipePath.append(recipe)
         return .none
       case .showRecipeOfTheDay:
-        if let recipeOfTheDay = DataManager.recipeOfTheDay {
-          state.recipePath = [recipeOfTheDay]
-        }
+        let recipeOfTheDay = DataManager.findRecipeOfTheDay(at: BuiltInRecipes.examples)
+        state.recipePath = [recipeOfTheDay]
+        
         return .none
       case .showCategories:
         state.recipePath.removeAll()

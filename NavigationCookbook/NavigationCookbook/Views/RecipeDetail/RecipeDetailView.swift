@@ -118,8 +118,9 @@ private struct Content<Link: View>: View {
   }
   
   var relatedRecipes: some View {
-    WithViewStore(self.store, observe: { ($0) }) { viewStore in
+    WithViewStore(self.store) { viewStore in
       let padding = EdgeInsets(top: 16, leading: 0, bottom: 8, trailing: 0)
+      
       if let recipe = viewStore.recipe,
         !recipe.related.isEmpty {
         VStack(alignment: .leading) {
