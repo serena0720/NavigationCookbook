@@ -17,19 +17,13 @@ extension DataManager: DependencyKey {
   static let liveValue = Self(
     load: { url in try Data(contentsOf: url) }
   )
-
-  static let previewValue = Self.mock()
-
-  static let failToWrite = Self(
-    load: { _ in Data() }
-  )
-
+  
   static let failToLoad = Self(
     load: { _ in
       throw DataMangerError.failToLoad
     }
   )
-
+  
   static func mock(initialData: Data? = nil) -> Self {
     let data = LockIsolated(initialData)
     return Self(
