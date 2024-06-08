@@ -22,6 +22,7 @@
 		AD231271283EF16900254BBF /* StackContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A796727FD4EBE009CCB40 /* StackContentView.swift */; };
 		AD231277283EF84400254BBF /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD231276283EF84400254BBF /* ContinueButton.swift */; };
 		B3C78FCF2C11FA7E0033F872 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B3C78FCE2C11FA7E0033F872 /* ComposableArchitecture */; };
+		D23D88AA2C13FB8300227F33 /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D88A92C13FB8300227F33 /* RecipeError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		AD231259283EED1200254BBF /* NavigationCookbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NavigationCookbook.entitlements; sourceTree = "<group>"; };
 		AD23125B283EED1200254BBF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AD231276283EF84400254BBF /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
+		D23D88A92C13FB8300227F33 /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				AD231252283EED1000254BBF /* NavigationCookbook */,
+				D23D88A82C13FB7500227F33 /* Error */,
 				4D613FDB27FB913A0018C5F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,6 +126,14 @@
 				4D5A797D27FF6350009CCB40 /* Recipe.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D23D88A82C13FB7500227F33 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				D23D88A92C13FB8300227F33 /* RecipeError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				AD231266283EF16900254BBF /* Ingredient.swift in Sources */,
 				AD231267283EF16900254BBF /* NavigationModel.swift in Sources */,
 				AD231268283EF16900254BBF /* Recipe.swift in Sources */,
+				D23D88AA2C13FB8300227F33 /* RecipeError.swift in Sources */,
 				AD23126A283EF16900254BBF /* ContentView.swift in Sources */,
 				AD23126D283EF16900254BBF /* RecipeDetail.swift in Sources */,
 				AD23126F283EF16900254BBF /* RecipePhoto.swift in Sources */,
