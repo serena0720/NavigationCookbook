@@ -8,27 +8,26 @@
 import SwiftUI
 
 struct RecipePhoto: View {
-	var recipe: Recipe
-	
-	var body: some View {
-		if let imageName = recipe.imageName {
-			Image(imageName)
-				.resizable()
-				.aspectRatio(contentMode: .fit)
-		} else {
-			ZStack {
-				Rectangle()
-					.fill(.tertiary)
-				Image(systemName: "camera")
-					.font(.system(size: 64))
-					.foregroundStyle(.secondary)
-			}
-		}
-	}
+  var url: String?
+  
+  var body: some View {
+    if let url {
+      AsyncImage(url: URL(string: url)) { phase in
+        phase.image?.resizable()
+          .aspectRatio(contentMode: .fit)
+      }
+    } else {
+      ZStack {
+        Rectangle()
+          .fill(.tertiary)
+        Image(systemName: "camera")
+          .font(.system(size: 64))
+          .foregroundStyle(.secondary)
+      }
+    }
+  }
 }
 
-struct RecipePhoto_Previews: PreviewProvider {
-	static var previews: some View {
-		RecipePhoto(recipe: .mock)
-	}
+#Preview {
+  RecipePhoto(url: nil)
 }

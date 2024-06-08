@@ -16,7 +16,7 @@ struct NavigationFeature: Reducer {
     var path = StackState<Path.State>()
     var stackContent = StackContentFeature.State()
   }
-  enum Action: Equatable {
+  enum Action {
     case path(StackAction<Path.State, Path.Action>)
     case stackContent(StackContentFeature.Action)
   }
@@ -27,7 +27,7 @@ struct NavigationFeature: Reducer {
     enum State: Equatable {
       case recipeDetail(RecipeDetailFeature.State)
     }
-    enum Action: Equatable {
+    enum Action {
       case recipeDetail(RecipeDetailFeature.Action)
     }
     var body: some ReducerOf<Self> {

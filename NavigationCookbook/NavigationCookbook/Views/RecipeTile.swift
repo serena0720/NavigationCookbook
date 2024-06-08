@@ -9,10 +9,11 @@ import SwiftUI
 
 struct RecipeTile: View {
 	var recipe: Recipe
+  var url: String?
 	
 	var body: some View {
 		VStack {
-			RecipePhoto(recipe: recipe)
+      RecipePhoto(url: url)
 				.aspectRatio(1, contentMode: .fill)
 				.frame(maxWidth: 240, maxHeight: 240)
 			Text(recipe.name)
@@ -25,6 +26,6 @@ struct RecipeTile: View {
 
 struct RecipeTile_Previews: PreviewProvider {
 	static var previews: some View {
-		RecipeTile(recipe: .mock)
+    RecipeTile(recipe: .mock, url: nil)
 	}
 }

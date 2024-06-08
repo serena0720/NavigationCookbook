@@ -26,7 +26,7 @@ extension ImageSearchClient: DependencyKey {
 				urlReqeust.allHTTPHeaderFields = [
 					"Authorization": "KakaoAK 5363ff2aa13b9956ace377d6a6b06857"
 				]
-				let (data, response) = try await URLSession.shared.data(for: urlReqeust)
+        let (data, _) = try await URLSession.shared.data(for: urlReqeust)
 				guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
 							let jsonDict = jsonObject as? [String: Any],
 							let documents = jsonDict["documents"] as? [[String: Any]],

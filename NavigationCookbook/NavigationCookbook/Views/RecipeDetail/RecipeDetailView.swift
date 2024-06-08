@@ -13,19 +13,6 @@ struct RecipeDetailView: View {
   @Bindable var store: StoreOf<RecipeDetailFeature>
   
   var body: some View {
-    ZStack {
-        Content(
-          store: self.store
-        )
-    }
-  }
-}
-
-// MARK: - CustomViews
-private struct Content: View {
-  @Bindable var store: StoreOf<RecipeDetailFeature>
-  
-  var body: some View {
     ScrollView {
       ViewThatFits(in: .horizontal) {
         wideDetails
@@ -34,6 +21,9 @@ private struct Content: View {
       .padding()
     }
     .navigationTitle(store.recipe.name)
+    .onAppear {
+      store.send(.onAppear)
+    }
   }
   
   private var wideDetails: some View {
@@ -59,7 +49,7 @@ private struct Content: View {
   
   @ViewBuilder
   private var image: some View {
-		RecipePhoto(recipe: store.recipe)
+    RecipePhoto(url: store.image)
         .frame(width: 300, height: 300)
     
   }
@@ -93,7 +83,7 @@ private struct Content: View {
 					let relatedRecipes = getRelatedRecipes(with: store.recipes, for: store.recipe)
 					ForEach(relatedRecipes) { relatedRecipe in
 						NavigationLink(state: NavigationFeature.Path.State.recipeDetail(.init(recipe: relatedRecipe))) {
-							RecipeTile(recipe: relatedRecipe)
+              RecipeTile(recipe: relatedRecipe, url: store.image)
 						}
 					}
         }
