@@ -33,7 +33,7 @@ struct RecipeDetailFeature: Reducer {
         state.recipe = recipe
         return .none
       case .delegate(_):
-          .none
+        return .none
       case let .showAlert(message):
         state.alert = AlertState(title: TextState(message))
         return .none
