@@ -9,7 +9,9 @@
 import SwiftUI
 import ComposableArchitecture
 
+@Reducer
 struct StackContentFeature: Reducer {
+  @ObservableState
   struct State: Equatable {
     var recipePath: [Recipe] = []
     var recipesByCategory: [Category: [Recipe]] = [:]

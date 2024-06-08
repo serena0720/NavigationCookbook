@@ -9,7 +9,9 @@
 import SwiftUI
 import ComposableArchitecture
 
+@Reducer
 struct RecipeDetailFeature: Reducer {
+  @ObservableState
   struct State: Equatable {
     var recipe: Recipe?
     var alert: AlertState<Action>?
