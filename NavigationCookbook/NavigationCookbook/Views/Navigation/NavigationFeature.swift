@@ -48,9 +48,7 @@ struct NavigationFeature: Reducer {
       switch action {
       case .path(.element(id: _, action: .recipeDetail)):
         return .none
-      case .path(.popFrom(id: let id)):
-        return .none
-      case .path(.push(id: let id, state: let state)):
+      case .path:
         return .none
       case .stackContent(_):
         return .none
