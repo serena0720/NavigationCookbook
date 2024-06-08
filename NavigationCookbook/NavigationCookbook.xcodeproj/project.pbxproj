@@ -20,7 +20,6 @@
 		AD23126F283EF16900254BBF /* RecipePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4B1108282471950010C99B /* RecipePhoto.swift */; };
 		AD231270283EF16900254BBF /* RecipeTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEE8D3280DD0F10054F7BD /* RecipeTile.swift */; };
 		AD231271283EF16900254BBF /* StackContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A796727FD4EBE009CCB40 /* StackContentView.swift */; };
-		AD231277283EF84400254BBF /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD231276283EF84400254BBF /* ContinueButton.swift */; };
 		B3C78FCF2C11FA7E0033F872 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B3C78FCE2C11FA7E0033F872 /* ComposableArchitecture */; };
 		D23D88AA2C13FB8300227F33 /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D88A92C13FB8300227F33 /* RecipeError.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		AD231257283EED1200254BBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD231259283EED1200254BBF /* NavigationCookbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NavigationCookbook.entitlements; sourceTree = "<group>"; };
 		AD23125B283EED1200254BBF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AD231276283EF84400254BBF /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		D23D88A92C13FB8300227F33 /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				4D613FD427FB91380018C5F3 /* ContentView.swift */,
-				AD231276283EF84400254BBF /* ContinueButton.swift */,
 				4D5A798027FF7731009CCB40 /* RecipeDetail.swift */,
 				4D4B1108282471950010C99B /* RecipePhoto.swift */,
 				4DCEE8D3280DD0F10054F7BD /* RecipeTile.swift */,
@@ -225,7 +222,6 @@
 				AD23126F283EF16900254BBF /* RecipePhoto.swift in Sources */,
 				AD231270283EF16900254BBF /* RecipeTile.swift in Sources */,
 				AD231271283EF16900254BBF /* StackContentView.swift in Sources */,
-				AD231277283EF84400254BBF /* ContinueButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
