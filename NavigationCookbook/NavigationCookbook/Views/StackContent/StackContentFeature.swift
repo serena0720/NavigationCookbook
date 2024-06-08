@@ -13,9 +13,11 @@ import ComposableArchitecture
 struct StackContentFeature: Reducer {
   @ObservableState
   struct State: Equatable {
-    var recipePath: [Recipe] = []
-    var recipesByCategory: [Category: [Recipe]] = [:]
-    var recipeOfTheDay: Recipe?
+		var recipes: [Recipe]
+		
+		init(recipes: [Recipe] = BuiltInRecipes.examples) {
+			self.recipes = recipes
+		}
   }
   enum Action: Equatable {
     case selectCategory(Category)
@@ -27,18 +29,18 @@ struct StackContentFeature: Reducer {
     Reduce { state, action in
       switch action {
       case let .selectCategory(category):
-        state.recipesByCategory[category] = DataManager.findRecipes(at: BuiltInRecipes.examples, in: category)
+//        state.recipesByCategory[category] = DataManager.findRecipes(at: BuiltInRecipes.examples, in: category)
         return .none
       case let .selectRecipe(recipe):
-        state.recipePath.append(recipe)
+//        state.recipePath.append(recipe)
         return .none
       case .showRecipeOfTheDay:
-        let recipeOfTheDay = DataManager.findRecipeOfTheDay(at: BuiltInRecipes.examples)
-        state.recipePath = [recipeOfTheDay]
+//        let recipeOfTheDay = DataManager.findRecipeOfTheDay(at: BuiltInRecipes.examples)
+//        state.recipePath = [recipeOfTheDay]
         
         return .none
       case .showCategories:
-        state.recipePath.removeAll()
+//        state.recipePath.removeAll()
         return.none
       }
     }

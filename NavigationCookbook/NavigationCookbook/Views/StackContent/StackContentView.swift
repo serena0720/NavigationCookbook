@@ -15,7 +15,7 @@ struct StackContentView: View {
   var body: some View {
     List(Category.allCases) { category in
       Section {
-        ForEach(store.recipesByCategory[category] ?? []) { recipe in
+				ForEach(getRecipes(recipes: store.recipes, for: category)) { recipe in
           NavigationLink(recipe.name, value: recipe)
         }
       } header: {
@@ -30,6 +30,12 @@ struct StackContentView: View {
       .buttonStyle(.plain)
     }
   }
+	
+	func getRecipes(recipes: [Recipe], for category: Category) -> [Recipe] {
+		recipes
+			.filter { $0.category == category }
+			.sorted { $0.name < $1.name }
+	}
 }
 
 #Preview {
