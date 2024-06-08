@@ -29,5 +29,6 @@ struct NavigationView: View {
 #Preview {
   NavigationView(store: Store(initialState: NavigationFeature.State(), reducer: {
     NavigationFeature()
+      ._printChanges()
   }))
 }
