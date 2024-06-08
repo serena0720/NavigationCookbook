@@ -9,7 +9,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-// MARK: - Reducer
+// MARK: - RecipeDetailReducer
 struct RecipeDetailFeature: Reducer {
   struct State: Equatable {
     var recipe: Recipe?
@@ -18,8 +18,14 @@ struct RecipeDetailFeature: Reducer {
   
   enum Action: Equatable {
     case selectRecipe(Recipe)
+    case delegate(Delegate)
     case showAlert(String)
     case dissmissAlert
+    
+    // NOTE: - Delegate 연습용
+    enum Delegate: Equatable {
+      case deleteRecipe(Recipe)
+    }
   }
   
   var body: some ReducerOf<Self> {
@@ -28,6 +34,8 @@ struct RecipeDetailFeature: Reducer {
       case let .selectRecipe(recipe):
         state.recipe = recipe
         return .none
+      case .delegate(_):
+          .none
       case let .showAlert(message):
         state.alert = AlertState(title: TextState(message))
         return .none
@@ -68,6 +76,7 @@ struct RecipeDetail<Link: View>: View {
   }
 }
 
+// MARK: - CustomViews
 private struct Content<Link: View>: View {
   typealias RecipeState = RecipeDetailFeature.State
   typealias RecipeAction = RecipeDetailFeature.Action
@@ -173,6 +182,7 @@ private struct Content<Link: View>: View {
   }
 }
 
+// MARK: - Preview
 #Preview {
   return Group {
     RecipeDetail(store: Store(initialState: RecipeDetailFeature.State(), reducer: {
