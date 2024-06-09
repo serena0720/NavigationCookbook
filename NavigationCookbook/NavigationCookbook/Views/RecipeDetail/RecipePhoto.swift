@@ -12,20 +12,31 @@ struct RecipePhoto: View {
   
   var body: some View {
     if let imageURLString {
-      AsyncImage(url: URL(string: imageURLString)) { phase in
-        phase.image?.resizable()
-          .aspectRatio(contentMode: .fit)
-      }
+			AsyncImage(
+				url: URL(string: imageURLString),
+				content: { image in
+					image
+						.resizable()
+						.aspectRatio(contentMode: .fit)
+				},
+				placeholder: {
+					placeholder
+				}
+			)
     } else {
-      ZStack {
-        Rectangle()
-          .fill(.tertiary)
-        Image(systemName: "camera")
-          .font(.system(size: 64))
-          .foregroundStyle(.secondary)
-      }
+			placeholder
     }
   }
+	
+	var placeholder: some View {
+		ZStack {
+			Rectangle()
+				.fill(.tertiary)
+			Image(systemName: "camera")
+				.font(.system(size: 64))
+				.foregroundStyle(.secondary)
+		}
+	}
 }
 
 #Preview {
