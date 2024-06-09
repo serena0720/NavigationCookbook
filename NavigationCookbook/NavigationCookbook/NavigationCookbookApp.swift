@@ -23,7 +23,6 @@ struct NavigationCookbookApp: App {
           )
         ) {
           NavigationFeature()
-            ._printChanges()
         }
       )
     }

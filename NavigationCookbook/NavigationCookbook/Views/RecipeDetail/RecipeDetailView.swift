@@ -73,8 +73,7 @@ struct RecipeDetailView: View {
           .padding(EdgeInsets(top: 16, leading: 0, bottom: 8, trailing: 0))
 				
         LazyVGrid(columns: columns, alignment: .leading) {
-					let relatedRecipes = getRelatedRecipes(with: store.recipes, for: store.recipe)
-					ForEach(relatedRecipes) { relatedRecipe in
+					ForEach(store.relatedRecipes) { relatedRecipe in
 						NavigationLink(state: NavigationFeature.Path.State.recipeDetail(.init(recipe: relatedRecipe))) {
 							RecipeTile(name: relatedRecipe.name, imageURLString: store.imageURLString)
 						}
@@ -85,12 +84,6 @@ struct RecipeDetailView: View {
       EmptyView()
     }
   }
-	
-	func getRelatedRecipes(with recipes: [Recipe], for recipe: Recipe) -> [Recipe] {
-		recipes
-			.filter { recipe.related.contains($0.id) }
-			.sorted { $0.name < $1.name }
-	}
   
   private var columns: [GridItem] {
     [ GridItem(.adaptive(minimum: 120, maximum: 120)) ]
