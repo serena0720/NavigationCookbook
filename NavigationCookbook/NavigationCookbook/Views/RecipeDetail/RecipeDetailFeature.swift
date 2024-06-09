@@ -16,18 +16,18 @@ struct RecipeDetailFeature: Reducer {
     var recipe: Recipe
 		var recipes: [Recipe]
     var alert: AlertState<Action.Alert>?
-    var image: String?
+    var imageURLString: String?
 		
 		init(
 			recipe: Recipe,
 			recipes: [Recipe] = BuiltInRecipes.examples,
 			alert: AlertState<Action.Alert>? = nil,
-			image: String? = nil
+			imageURLString: String? = nil
 		) {
 			self.recipe = recipe
 			self.recipes = recipes
 			self.alert = alert
-      self.image = image
+      self.imageURLString = imageURLString
 		}
   }
   
@@ -49,22 +49,28 @@ struct RecipeDetailFeature: Reducer {
       case let .selectRecipe(recipe):
         state.recipe = recipe
         return .none
+				
       case let .showAlert(message):
         state.alert = AlertState(title: TextState(message))
         return .none
+				
       case .dismissAlert:
         state.alert = nil
         return .none
+				
       case .onAppear:
         return .run { [state] send in
           await send(.getImage(Result<String, Error> {
             try await self.imageSearchClient.getImage(query: state.recipe.name)
           }))
         }
-      case let .getImage(.success(image)):
-        state.image = image
+				
+      case let .getImage(.success(imageURLString)):
+        state.imageURLString = imageURLString
         return .none
+				
       case let .getImage(.failure(error)):
+				print(error)
         return .none
       }
     }

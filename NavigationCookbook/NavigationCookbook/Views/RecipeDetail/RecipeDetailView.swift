@@ -46,7 +46,7 @@ struct RecipeDetailView: View {
   }
   
   private var image: some View {
-		RecipePhoto(url: store.image)
+		RecipePhoto(imageURLString: store.imageURLString)
 			.frame(width: 300, height: 300)
 	}
   
@@ -76,7 +76,7 @@ struct RecipeDetailView: View {
 					let relatedRecipes = getRelatedRecipes(with: store.recipes, for: store.recipe)
 					ForEach(relatedRecipes) { relatedRecipe in
 						NavigationLink(state: NavigationFeature.Path.State.recipeDetail(.init(recipe: relatedRecipe))) {
-              RecipeTile(recipe: relatedRecipe, url: store.image)
+							RecipeTile(name: relatedRecipe.name, imageURLString: store.imageURLString)
 						}
 					}
         }

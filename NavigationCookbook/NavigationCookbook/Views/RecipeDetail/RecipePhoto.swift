@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct RecipePhoto: View {
-  var url: String?
+  var imageURLString: String?
   
   var body: some View {
-    if let url {
-      AsyncImage(url: URL(string: url)) { phase in
+    if let imageURLString {
+      AsyncImage(url: URL(string: imageURLString)) { phase in
         phase.image?.resizable()
           .aspectRatio(contentMode: .fit)
       }
@@ -29,5 +29,5 @@ struct RecipePhoto: View {
 }
 
 #Preview {
-  RecipePhoto(url: nil)
+  RecipePhoto(imageURLString: nil)
 }

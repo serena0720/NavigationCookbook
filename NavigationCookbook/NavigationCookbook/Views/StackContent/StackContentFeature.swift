@@ -28,6 +28,7 @@ struct StackContentFeature: Reducer {
       switch action {
       case .showRecipeOfTheDay:
         return .none
+				
       case .showCategories:
         return.none
       }

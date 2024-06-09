@@ -44,11 +44,10 @@ struct NavigationFeature: Reducer {
     
     Reduce { state, action in
       switch action {
-      case .path(.element(id: _, action: .recipeDetail)):
-        return .none
       case .path:
         return .none
-      case .stackContent(_):
+				
+      case .stackContent:
         return .none
       }
     }

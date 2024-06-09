@@ -116,8 +116,6 @@
 				D23D88CA2C1463ED00227F33 /* Navigation */,
 				D23D88CF2C14646A00227F33 /* StackContent */,
 				D23D88D42C1464F000227F33 /* RecipeDetail */,
-				4D4B1108282471950010C99B /* RecipePhoto.swift */,
-				4DCEE8D3280DD0F10054F7BD /* RecipeTile.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +170,8 @@
 			children = (
 				D23D88D52C14650A00227F33 /* RecipeDetailFeature.swift */,
 				D23D88D72C14655400227F33 /* RecipeDetailView.swift */,
+				4D4B1108282471950010C99B /* RecipePhoto.swift */,
+				4DCEE8D3280DD0F10054F7BD /* RecipeTile.swift */,
 			);
 			path = RecipeDetail;
 			sourceTree = "<group>";
