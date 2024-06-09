@@ -35,6 +35,5 @@ struct StackContentView: View {
 #Preview {
   StackContentView(store: Store(initialState: StackContentFeature.State(), reducer: {
     StackContentFeature()
-      ._printChanges()
   }))
 }

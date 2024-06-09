@@ -109,7 +109,6 @@ struct RecipeDetailView: View {
   return Group {
 		RecipeDetailView(store: Store(initialState: RecipeDetailFeature.State(recipe: .mock), reducer: {
       RecipeDetailFeature()
-        ._printChanges()
     }))
   }
 }

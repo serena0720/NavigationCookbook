@@ -31,16 +31,14 @@ struct NavigationFeature: Reducer {
       case recipeDetail(RecipeDetailFeature.Action)
     }
     var body: some ReducerOf<Self> {
-      Scope(state: /State.recipeDetail,
-            action: /Action.recipeDetail) {
+      Scope(state: /State.recipeDetail, action: /Action.recipeDetail) {
         RecipeDetailFeature()
       }
     }
   }
   
   var body: some ReducerOf<Self> {
-    Scope(state: \.stackContent,
-          action: /Action.stackContent) {
+    Scope(state: \.stackContent, action: /Action.stackContent) {
       StackContentFeature()
     }
     

@@ -1,5 +1,5 @@
 //
-//  String+.swift
+//  String+extensions.swift
 //  NavigationCookbook
 //
 //  Created by Hyun A Song on 6/8/24.

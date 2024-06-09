@@ -18,7 +18,12 @@ struct RecipeDetailFeature: Reducer {
     var alert: AlertState<Action.Alert>?
     var image: String?
 		
-    init(recipe: Recipe, recipes: [Recipe] = BuiltInRecipes.examples, alert: AlertState<Action.Alert>? = nil, image: String? = nil) {
+		init(
+			recipe: Recipe,
+			recipes: [Recipe] = BuiltInRecipes.examples,
+			alert: AlertState<Action.Alert>? = nil,
+			image: String? = nil
+		) {
 			self.recipe = recipe
 			self.recipes = recipes
 			self.alert = alert
@@ -33,7 +38,7 @@ struct RecipeDetailFeature: Reducer {
     case onAppear
     case getImage(Result<String, Error>)
     
-    enum Alert: Equatable { }
+    enum Alert: Equatable {}
   }
   
   @Dependency(\.imageSearchClient) var imageSearchClient
