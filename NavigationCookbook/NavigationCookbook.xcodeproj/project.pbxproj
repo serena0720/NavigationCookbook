@@ -15,6 +15,7 @@
 		AD231268283EF16900254BBF /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A797D27FF6350009CCB40 /* Recipe.swift */; };
 		AD23126F283EF16900254BBF /* RecipePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4B1108282471950010C99B /* RecipePhoto.swift */; };
 		AD231270283EF16900254BBF /* RecipeTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCEE8D3280DD0F10054F7BD /* RecipeTile.swift */; };
+		B334FB902C15C3470000B632 /* RecipeDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B334FB8F2C15C3470000B632 /* RecipeDetailTests.swift */; };
 		B3C78FCF2C11FA7E0033F872 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B3C78FCE2C11FA7E0033F872 /* ComposableArchitecture */; };
 		B3C78FEA2C14860C0033F872 /* ImageSearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C78FE92C14860C0033F872 /* ImageSearchClient.swift */; };
 		D23D88C72C145CD800227F33 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D88C62C145CD800227F33 /* String+extensions.swift */; };
@@ -27,6 +28,16 @@
 		D23D88D82C14655400227F33 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D88D72C14655400227F33 /* RecipeDetailView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B334FB8A2C15C32E0000B632 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D613FCE27FB91380018C5F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD231250283EED1000254BBF;
+			remoteInfo = NavigationCookbook;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		4D4B1108282471950010C99B /* RecipePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePhoto.swift; sourceTree = "<group>"; };
 		4D5A797727FF62E9009CCB40 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -38,8 +49,10 @@
 		AD231257283EED1200254BBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD231259283EED1200254BBF /* NavigationCookbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NavigationCookbook.entitlements; sourceTree = "<group>"; };
 		AD23125B283EED1200254BBF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B334FB862C15C32E0000B632 /* NavigationCookbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationCookbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B334FB8F2C15C3470000B632 /* RecipeDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailTests.swift; sourceTree = "<group>"; };
+		B39E750C2C154967007CB46E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3C78FE92C14860C0033F872 /* ImageSearchClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchClient.swift; sourceTree = "<group>"; };
-		D217E9E22C15828F006337DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D23D88C62C145CD800227F33 /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 		D23D88C82C145D4200227F33 /* BuiltInRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltInRecipes.swift; sourceTree = "<group>"; };
 		D23D88CB2C14640500227F33 /* NavigationFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFeature.swift; sourceTree = "<group>"; };
@@ -59,6 +72,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B334FB832C15C32E0000B632 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -66,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				AD231252283EED1000254BBF /* NavigationCookbook */,
+				B334FB872C15C32E0000B632 /* NavigationCookbookTests */,
 				4D613FDB27FB913A0018C5F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				AD231251283EED1000254BBF /* NavigationCookbook.app */,
+				B334FB862C15C32E0000B632 /* NavigationCookbookTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,8 +103,8 @@
 		AD231252283EED1000254BBF /* NavigationCookbook */ = {
 			isa = PBXGroup;
 			children = (
-				D217E9E22C15828F006337DD /* Info.plist */,
 				4D613FD327FB91380018C5F3 /* NavigationCookbookApp.swift */,
+				B39E750C2C154967007CB46E /* Info.plist */,
 				B3C78FE62C1485F80033F872 /* Services */,
 				AD231260283EEF6F00254BBF /* Resources */,
 				AD231262283EEFA000254BBF /* Models */,
@@ -129,6 +151,14 @@
 				D23D88C82C145D4200227F33 /* BuiltInRecipes.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B334FB872C15C32E0000B632 /* NavigationCookbookTests */ = {
+			isa = PBXGroup;
+			children = (
+				B334FB8F2C15C3470000B632 /* RecipeDetailTests.swift */,
+			);
+			path = NavigationCookbookTests;
 			sourceTree = "<group>";
 		};
 		B3C78FE62C1485F80033F872 /* Services */ = {
@@ -199,6 +229,24 @@
 			productReference = AD231251283EED1000254BBF /* NavigationCookbook.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B334FB852C15C32E0000B632 /* NavigationCookbookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B334FB8C2C15C32E0000B632 /* Build configuration list for PBXNativeTarget "NavigationCookbookTests" */;
+			buildPhases = (
+				B334FB822C15C32E0000B632 /* Sources */,
+				B334FB832C15C32E0000B632 /* Frameworks */,
+				B334FB842C15C32E0000B632 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B334FB8B2C15C32E0000B632 /* PBXTargetDependency */,
+			);
+			name = NavigationCookbookTests;
+			productName = NavigationCookbookTests;
+			productReference = B334FB862C15C32E0000B632 /* NavigationCookbookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,12 +254,17 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1540;
+				DefaultBuildSystemTypeForWorkspace = Latest;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					AD231250283EED1000254BBF = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					B334FB852C15C32E0000B632 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = AD231250283EED1000254BBF;
 					};
 				};
 			};
@@ -232,6 +285,7 @@
 			projectRoot = "";
 			targets = (
 				AD231250283EED1000254BBF /* NavigationCookbook */,
+				B334FB852C15C32E0000B632 /* NavigationCookbookTests */,
 			);
 		};
 /* End PBXProject section */
@@ -243,6 +297,13 @@
 			files = (
 				AD23125C283EED1200254BBF /* Preview Assets.xcassets in Resources */,
 				AD231258283EED1200254BBF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B334FB842C15C32E0000B632 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +332,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B334FB822C15C32E0000B632 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B334FB902C15C3470000B632 /* RecipeDetailTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B334FB8B2C15C32E0000B632 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD231250283EED1000254BBF /* NavigationCookbook */;
+			targetProxy = B334FB8A2C15C32E0000B632 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4D613FE927FB913A0018C5F3 /* Debug */ = {
@@ -308,11 +385,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMPILER_INDEX_STORE_ENABLE = No;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -371,11 +446,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMPILER_INDEX_STORE_ENABLE = No;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -404,13 +477,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NavigationCookbook/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = WWXFNS83RA;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NavigationCookbook/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = /Users/zeke/Desktop/NavigationCookbook/NavigationCookbook/NavigationCookbook/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
@@ -447,13 +518,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NavigationCookbook/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = WWXFNS83RA;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NavigationCookbook/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = /Users/zeke/Desktop/NavigationCookbook/NavigationCookbook/NavigationCookbook/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
@@ -479,6 +548,58 @@
 			};
 			name = Release;
 		};
+		B334FB8D2C15C32E0000B632 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WGHLUH2UCD;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.dbdlab.wouldyoutest.AppTests.NavigationCookbookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NavigationCookbook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NavigationCookbook";
+			};
+			name = Debug;
+		};
+		B334FB8E2C15C32E0000B632 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WGHLUH2UCD;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.dbdlab.wouldyoutest.AppTests.NavigationCookbookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NavigationCookbook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NavigationCookbook";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -496,6 +617,15 @@
 			buildConfigurations = (
 				AD23125D283EED1200254BBF /* Debug */,
 				AD23125E283EED1200254BBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B334FB8C2C15C32E0000B632 /* Build configuration list for PBXNativeTarget "NavigationCookbookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B334FB8D2C15C32E0000B632 /* Debug */,
+				B334FB8E2C15C32E0000B632 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

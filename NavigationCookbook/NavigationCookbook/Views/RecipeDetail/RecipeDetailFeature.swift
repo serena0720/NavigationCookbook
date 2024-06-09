@@ -42,6 +42,7 @@ struct RecipeDetailFeature: Reducer {
 		case getRelatedRecipes([Recipe], Recipe)
 		case setRelatedRecipes([Recipe])
 		
+		@CasePathable
 		enum Delegate {
 			case moveToRecipeDetail(Recipe)
 		}

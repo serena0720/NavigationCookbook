@@ -13,6 +13,8 @@ import ComposableArchitecture
 struct NavigationCookbookApp: App {
   var body: some Scene {
     WindowGroup {
+      let mock = Recipe.mock
+      
       NavigationView(
         store: Store(
           initialState: NavigationFeature.State(

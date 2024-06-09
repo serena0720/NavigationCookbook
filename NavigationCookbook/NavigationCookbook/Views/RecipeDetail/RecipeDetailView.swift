@@ -10,7 +10,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct RecipeDetailView: View {
-  var store: StoreOf<RecipeDetailFeature>
+  @Bindable var store: StoreOf<RecipeDetailFeature>
   
   var body: some View {
     ScrollView {
