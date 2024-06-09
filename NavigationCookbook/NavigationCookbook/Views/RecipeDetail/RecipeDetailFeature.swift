@@ -32,9 +32,6 @@ struct RecipeDetailFeature: Reducer {
   }
   
   enum Action {
-    case selectRecipe(Recipe)
-    case showAlert(String)
-    case dismissAlert
     case onAppear
     case getImage(Result<String, Error>)
     
@@ -46,18 +43,6 @@ struct RecipeDetailFeature: Reducer {
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
-      case let .selectRecipe(recipe):
-        state.recipe = recipe
-        return .none
-				
-      case let .showAlert(message):
-        state.alert = AlertState(title: TextState(message))
-        return .none
-				
-      case .dismissAlert:
-        state.alert = nil
-        return .none
-				
       case .onAppear:
         return .run { [state] send in
           await send(.getImage(Result<String, Error> {
