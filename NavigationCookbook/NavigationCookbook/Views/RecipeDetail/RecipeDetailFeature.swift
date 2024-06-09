@@ -38,6 +38,7 @@ struct RecipeDetailFeature: Reducer {
     case onAppear
     case getImage(Result<String, Error>)
 		case getRelatedRecipes([Recipe], Recipe)
+		case setRelatedRecipes([Recipe])
     
     enum Alert: Equatable {}
   }
@@ -57,6 +58,7 @@ struct RecipeDetailFeature: Reducer {
         }
 				
       case let .getImage(.success(imageURLString)):
+				state.recipe.imageURLString = imageURLString
         state.imageURLString = imageURLString
         return .none
 				
@@ -65,9 +67,21 @@ struct RecipeDetailFeature: Reducer {
         return .none
 				
 			case let .getRelatedRecipes(recipes, recipe):
-				state.relatedRecipes = recipes
-					.filter { recipe.related.contains($0.id) }
-					.sorted { $0.name < $1.name }
+				return .run { send in
+					var relatedRecipes = recipes
+						.filter { recipe.related.contains($0.id) }
+						.sorted { $0.name < $1.name }
+					
+					for (index, recipe) in relatedRecipes.enumerated() {
+						let imageURLString = try? await self.imageSearchClient.getImage(query: recipe.name)
+						relatedRecipes[index].imageURLString = imageURLString
+					}
+					
+					await send(.setRelatedRecipes(relatedRecipes))
+				}
+				
+			case let .setRelatedRecipes(relatedRecipes):
+				state.relatedRecipes = relatedRecipes
 				return .none
       }
     }

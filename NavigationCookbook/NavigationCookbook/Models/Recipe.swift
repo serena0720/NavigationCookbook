@@ -14,6 +14,11 @@ struct Recipe: Hashable, Identifiable {
 	var ingredients: [Ingredient]
 	var related: [Recipe.ID] = []
 	var imageName: String? = nil
+	var imageURLString: String? = nil
+	
+	mutating func setImageURLString(_ imageURLString: String) {
+		self.imageURLString = imageURLString
+	}
 }
 
 extension Recipe {

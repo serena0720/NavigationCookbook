@@ -14,8 +14,8 @@ struct RecipeTile: View {
 	var body: some View {
 		VStack {
       RecipePhoto(imageURLString: imageURLString)
+				.frame(maxWidth: 100, maxHeight: 100)
 				.aspectRatio(contentMode: .fill)
-				.frame(maxWidth: 240, maxHeight: 240)
 			Text(name)
 				.lineLimit(2, reservesSpace: true)
 				.font(.headline)

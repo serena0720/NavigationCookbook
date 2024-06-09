@@ -46,7 +46,7 @@ struct RecipeDetailView: View {
   }
   
   private var image: some View {
-		RecipePhoto(imageURLString: store.imageURLString)
+		RecipePhoto(imageURLString: store.recipe.imageURLString)
 			.frame(width: 300, height: 300)
 	}
   
@@ -75,7 +75,7 @@ struct RecipeDetailView: View {
         LazyVGrid(columns: columns, alignment: .leading) {
 					ForEach(store.relatedRecipes) { relatedRecipe in
 						NavigationLink(state: NavigationFeature.Path.State.recipeDetail(.init(recipe: relatedRecipe))) {
-							RecipeTile(name: relatedRecipe.name, imageURLString: store.imageURLString)
+							RecipeTile(name: relatedRecipe.name, imageURLString: relatedRecipe.imageURLString)
 						}
 					}
         }
