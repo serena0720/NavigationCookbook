@@ -74,9 +74,16 @@ struct RecipeDetailView: View {
 				
         LazyVGrid(columns: columns, alignment: .leading) {
 					ForEach(store.relatedRecipes) { relatedRecipe in
-						NavigationLink(state: NavigationFeature.Path.State.recipeDetail(.init(recipe: relatedRecipe))) {
-							RecipeTile(name: relatedRecipe.name, imageURLString: relatedRecipe.imageURLString)
-						}
+						Button(
+							action: { store.send(.recipeTileTapped(relatedRecipe)) },
+							label: {
+								RecipeTile(name: relatedRecipe.name, imageURLString: relatedRecipe.imageURLString)
+							}
+						)
+						
+//						NavigationLink(state: NavigationFeature.Path.State.recipeDetail(.init(recipe: relatedRecipe))) {
+//							RecipeTile(name: relatedRecipe.name, imageURLString: relatedRecipe.imageURLString)
+//						}
 					}
         }
       }

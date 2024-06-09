@@ -35,10 +35,16 @@ struct RecipeDetailFeature: Reducer {
   }
   
   enum Action {
+		case delegate(Delegate)
     case onAppear
+		case recipeTileTapped(Recipe)
     case getImage(Result<String, Error>)
 		case getRelatedRecipes([Recipe], Recipe)
 		case setRelatedRecipes([Recipe])
+		
+		enum Delegate {
+			case moveToRecipeDetail(Recipe)
+		}
     
     enum Alert: Equatable {}
   }
@@ -48,6 +54,9 @@ struct RecipeDetailFeature: Reducer {
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
+			case .delegate:
+				return .none
+				
       case .onAppear:
         return .run { [state] send in
 					await send(.getRelatedRecipes(state.allRecipes, state.recipe))
@@ -56,6 +65,9 @@ struct RecipeDetailFeature: Reducer {
             try await self.imageSearchClient.getImage(query: state.recipe.name)
           }))
         }
+				
+			case let .recipeTileTapped(recipe):
+				return .send(.delegate(.moveToRecipeDetail(recipe)))
 				
       case let .getImage(.success(imageURLString)):
 				state.recipe.imageURLString = imageURLString
