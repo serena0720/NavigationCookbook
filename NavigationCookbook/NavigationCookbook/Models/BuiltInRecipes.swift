@@ -67,13 +67,13 @@ struct BuiltInRecipes {
         category: .aespa, ingredients: karina.ingredients),
       "윈터": Recipe(
         name: "윈터",
-        category: .aespa, ingredients: ningning.ingredients),
+        category: .aespa, ingredients: winter.ingredients),
       "닝닝": Recipe(
         name: "닝닝",
-        category: .aespa, ingredients: giselle.ingredients),
+        category: .aespa, ingredients: ningning.ingredients),
       "지젤": Recipe(
         name: "지젤",
-        category: .aespa, ingredients: aespa.ingredients),
+        category: .aespa, ingredients: giselle.ingredients),
       "Apple Pie": Recipe(
         name: "Apple Pie", category: .dessert,
         ingredients: applePie.ingredients),
