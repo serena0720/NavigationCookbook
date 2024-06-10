@@ -70,6 +70,7 @@ struct RecipeDetailFeature: Reducer {
   }
   
   @Dependency(\.imageSearchClient) var imageSearchClient
+  @Dependency(\.dismiss) var dismiss
   
   var body: some ReducerOf<Self> {
     Reduce { state, action in
@@ -86,27 +87,33 @@ struct RecipeDetailFeature: Reducer {
 			case let .recipeTileTapped(recipe):
         state.destination = .relatedRecipe(RecipeDetailFeature.State(recipe: recipe))
         return .none
-        
-      case .destination(_):
-        return .none
 				
       case let .getImage(.success(imageURLString)):
 				state.recipe.imageURLString = imageURLString
         state.imageURLString = imageURLString
         return .none
 				
-      case let .getImage(.failure(error)):
+      case .getImage(.failure(_)):
         state.destination = .alert(
           AlertState(title: {
-            TextState("이미지 받아오는 과정에서 오류가 발생했습니다.")
+            TextState("이미지 받아오는 과정에서 오류가 발생했습니다. 다시 시도하세요")
           },
             actions: {
-              ButtonState(label: {
-                TextState("확인")
-              })
+              ButtonState(
+                action: .networkError) {
+                  TextState("확인")
+                }
             }
           )
         )
+        return .none
+        
+      case .destination(.presented(.alert(.networkError))):
+        return .run { _ in
+          await self.dismiss()
+        }
+        
+      case .destination(_):
         return .none
 				
 			case let .getRelatedRecipes(recipes, recipe):
