@@ -45,7 +45,7 @@ extension ImageSearchClient: DependencyKey {
   
   public static var previewValue: ImageSearchClient {
     return ImageSearchClient { query in
-      return "에스파"
+      return query
     }
   }
 }
