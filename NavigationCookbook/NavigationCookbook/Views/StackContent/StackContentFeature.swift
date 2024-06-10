@@ -22,15 +22,24 @@ struct StackContentFeature: Reducer {
   enum Action {
     case showRecipeOfTheDay
     case showCategories
+    case recipeButtonDidTap(Recipe)
+    case delegate(Delegate)
+    
+    enum Delegate {
+      case recipeSelected(Recipe)
+    }
   }
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
       case .showRecipeOfTheDay:
         return .none
-				
       case .showCategories:
         return.none
+      case let .recipeButtonDidTap(recipe):
+        return .send(.delegate(.recipeSelected(recipe)))
+      case .delegate:
+        return .none
       }
     }
   }

@@ -16,7 +16,11 @@ struct StackContentView: View {
     List(Category.allCases) { category in
       Section {
 				ForEach(getRecipes(recipes: store.recipes, for: category)) { recipe in
-					NavigationLink(recipe.name, state: NavigationFeature.Path.State.recipeDetail(.init(recipe: recipe)))
+          Button(
+            recipe.name
+          ) {
+            store.send(.delegate(.recipeSelected(recipe)))
+          }
         }
       } header: {
         Text(category.localizedName)
