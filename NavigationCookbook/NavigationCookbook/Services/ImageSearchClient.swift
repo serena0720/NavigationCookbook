@@ -45,7 +45,7 @@ extension ImageSearchClient: DependencyKey {
   
   public static var previewValue: ImageSearchClient {
     return ImageSearchClient { query in
-      return query
+      return "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202403/09/21e88381-7867-410a-b0c3-5d6c9cd430b1.jpg"
     }
   }
 }
