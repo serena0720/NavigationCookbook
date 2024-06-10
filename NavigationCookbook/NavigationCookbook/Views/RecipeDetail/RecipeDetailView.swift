@@ -29,6 +29,11 @@ struct RecipeDetailView: View {
         RecipeDetailView(store: store)
       }
     }
+    .alert(
+      store: self.store.scope(state: \.$destination, action: { .destination($0) }),
+      state: /RecipeDetailFeature.Destination.State.alert,
+      action: RecipeDetailFeature.Destination.Action.alert
+    )
   }
   
   private var wideDetails: some View {

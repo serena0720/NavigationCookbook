@@ -50,10 +50,16 @@ struct RecipeDetailFeature: Reducer {
   struct Destination: Reducer {
     enum State: Equatable {
       case relatedRecipe(RecipeDetailFeature.State)
+      case alert(AlertState<Action.Alert>)
     }
     
     enum Action {
       case showRelatedRecipe(RecipeDetailFeature.Action)
+      case alert(Alert)
+      
+      enum Alert {
+        case networkError
+      }
     }
     
     var body: some ReducerOf<Self> {
@@ -90,7 +96,17 @@ struct RecipeDetailFeature: Reducer {
         return .none
 				
       case let .getImage(.failure(error)):
-				print(error)
+        state.destination = .alert(
+          AlertState(title: {
+            TextState("이미지 받아오는 과정에서 오류가 발생했습니다.")
+          },
+            actions: {
+              ButtonState(label: {
+                TextState("확인")
+              })
+            }
+          )
+        )
         return .none
 				
 			case let .getRelatedRecipes(recipes, recipe):
