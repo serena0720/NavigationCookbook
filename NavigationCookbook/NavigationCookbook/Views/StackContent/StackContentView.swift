@@ -21,6 +21,7 @@ struct StackContentView: View {
           ) {
             store.send(.delegate(.recipeSelected(recipe)))
           }
+          .tint(.black)
         }
       } header: {
         Text(category.localizedName)
