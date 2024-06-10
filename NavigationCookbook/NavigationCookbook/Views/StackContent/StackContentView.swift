@@ -10,7 +10,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct StackContentView: View {
-  @Bindable var store: Store<StackContentFeature.State, StackContentFeature.Action>
+  var store: StoreOf<StackContentFeature>
   
   var body: some View {
     List(Category.allCases) { category in
