@@ -24,13 +24,13 @@ struct RecipeDetailView: View {
     .onAppear {
       store.send(.onAppear)
     }
-    .sheet(store: self.store.scope(state: \.$destination, action: { .destination($0) }), state: /RecipeDetailFeature.Destination.State.relatedRecipe, action: RecipeDetailFeature.Destination.Action.showRelatedRecipe) { store in
+    .sheet(store: self.store.scope(state: \.$destination, action: \.destination), state: /RecipeDetailFeature.Destination.State.relatedRecipe, action: RecipeDetailFeature.Destination.Action.showRelatedRecipe) { store in
       NavigationStack {
         RecipeDetailView(store: store)
       }
     }
     .alert(
-      store: self.store.scope(state: \.$destination, action: { .destination($0) }),
+      store: self.store.scope(state: \.$destination, action: \.destination),
       state: /RecipeDetailFeature.Destination.State.alert,
       action: RecipeDetailFeature.Destination.Action.alert
     )
