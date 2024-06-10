@@ -104,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				4D613FD327FB91380018C5F3 /* NavigationCookbookApp.swift */,
-				B39E750C2C154967007CB46E /* Info.plist */,
 				B3C78FE62C1485F80033F872 /* Services */,
 				AD231260283EEF6F00254BBF /* Resources */,
 				AD231262283EEFA000254BBF /* Models */,
@@ -125,6 +124,7 @@
 		AD231260283EEF6F00254BBF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B39E750C2C154967007CB46E /* Info.plist */,
 				AD231257283EED1200254BBF /* Assets.xcassets */,
 				AD231259283EED1200254BBF /* NavigationCookbook.entitlements */,
 				AD23125A283EED1200254BBF /* Preview Content */,
@@ -481,7 +481,7 @@
 				DEVELOPMENT_TEAM = WWXFNS83RA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = /Users/zeke/Desktop/NavigationCookbook/NavigationCookbook/NavigationCookbook/Info.plist;
+				INFOPLIST_FILE = NavigationCookbook/Resources/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
@@ -522,7 +522,7 @@
 				DEVELOPMENT_TEAM = WWXFNS83RA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = /Users/zeke/Desktop/NavigationCookbook/NavigationCookbook/NavigationCookbook/Info.plist;
+				INFOPLIST_FILE = NavigationCookbook/Resources/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
