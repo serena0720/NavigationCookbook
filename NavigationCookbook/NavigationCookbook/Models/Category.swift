@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum Category: Int, Hashable, CaseIterable, Identifiable, Codable {
+  case aespa
 	case dessert
 	case pancake
 	case salad
@@ -17,6 +18,8 @@ enum Category: Int, Hashable, CaseIterable, Identifiable, Codable {
 	
 	var localizedName: LocalizedStringKey {
 		switch self {
+    case .aespa:
+      return "에스파"
 		case .dessert:
 			return "Dessert"
 		case .pancake:

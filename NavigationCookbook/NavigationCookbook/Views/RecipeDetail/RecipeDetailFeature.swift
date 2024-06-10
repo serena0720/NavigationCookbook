@@ -40,6 +40,7 @@ struct RecipeDetailFeature: Reducer {
     case onAppear
 		case recipeTileTapped(Recipe)
     case getImage(Result<String, Error>)
+    case getAssetImage(String)
 		case getRelatedRecipes([Recipe], Recipe)
 		case setRelatedRecipes([Recipe])
     case destination(PresentationAction<Destination.Action>)
@@ -82,6 +83,11 @@ struct RecipeDetailFeature: Reducer {
           await send(.getImage(Result<String, Error> {
             try await self.imageSearchClient.getImage(query: state.recipe.name)
           }))
+        }
+        
+      case let .getAssetImage(name):
+        return .run { send in
+          
         }
 				
 			case let .recipeTileTapped(recipe):
