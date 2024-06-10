@@ -44,10 +44,6 @@ struct NavigationFeature: Reducer {
     
     Reduce { state, action in
       switch action {
-			case let .path(.element(id: _, action: .recipeDetail(.delegate(.moveToRecipeDetail(recipe))))):
-				state.path.append(.recipeDetail(.init(recipe: recipe)))
-				return .none
-				
       case .path:
         return .none
 				

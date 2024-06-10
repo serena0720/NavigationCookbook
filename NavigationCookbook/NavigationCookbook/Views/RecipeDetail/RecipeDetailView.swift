@@ -24,6 +24,11 @@ struct RecipeDetailView: View {
     .onAppear {
       store.send(.onAppear)
     }
+    .sheet(store: self.store.scope(state: \.$destination, action: { .destination($0) }), state: /RecipeDetailFeature.Destination.State.relatedRecipe, action: RecipeDetailFeature.Destination.Action.showRelatedRecipe) { store in
+      NavigationStack {
+        RecipeDetailView(store: store)
+      }
+    }
   }
   
   private var wideDetails: some View {

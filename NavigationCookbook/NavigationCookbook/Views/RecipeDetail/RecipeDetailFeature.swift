@@ -18,6 +18,8 @@ struct RecipeDetailFeature: Reducer {
     var alert: AlertState<Action.Alert>?
     var imageURLString: String?
 		var relatedRecipes: [Recipe]
+    @Presents
+    var destination: Destination.State?
 		
 		init(
 			recipe: Recipe,
@@ -35,19 +37,30 @@ struct RecipeDetailFeature: Reducer {
   }
   
   enum Action {
-		case delegate(Delegate)
     case onAppear
 		case recipeTileTapped(Recipe)
     case getImage(Result<String, Error>)
 		case getRelatedRecipes([Recipe], Recipe)
 		case setRelatedRecipes([Recipe])
-		
-		@CasePathable
-		enum Delegate {
-			case moveToRecipeDetail(Recipe)
-		}
-    
+    case destination(PresentationAction<Destination.Action>)
+
     enum Alert: Equatable {}
+  }
+  
+  struct Destination: Reducer {
+    enum State: Equatable {
+      case relatedRecipe(RecipeDetailFeature.State)
+    }
+    
+    enum Action {
+      case showRelatedRecipe(RecipeDetailFeature.Action)
+    }
+    
+    var body: some ReducerOf<Self> {
+      Scope(state: /State.relatedRecipe, action: /Action.showRelatedRecipe) {
+        RecipeDetailFeature()
+      }
+    }
   }
   
   @Dependency(\.imageSearchClient) var imageSearchClient
@@ -55,9 +68,6 @@ struct RecipeDetailFeature: Reducer {
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
-			case .delegate:
-				return .none
-				
       case .onAppear:
         return .run { [state] send in
 					await send(.getRelatedRecipes(state.allRecipes, state.recipe))
@@ -68,7 +78,11 @@ struct RecipeDetailFeature: Reducer {
         }
 				
 			case let .recipeTileTapped(recipe):
-				return .send(.delegate(.moveToRecipeDetail(recipe)))
+        state.destination = .relatedRecipe(RecipeDetailFeature.State(recipe: recipe))
+        return .none
+        
+      case .destination(_):
+        return .none
 				
       case let .getImage(.success(imageURLString)):
 				state.recipe.imageURLString = imageURLString
@@ -97,6 +111,9 @@ struct RecipeDetailFeature: Reducer {
 				state.relatedRecipes = relatedRecipes
 				return .none
       }
+    }
+    .ifLet(\.$destination, action: /Action.destination) {
+      Destination()
     }
   }
 }
