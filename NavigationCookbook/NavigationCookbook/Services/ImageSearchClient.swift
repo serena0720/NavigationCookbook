@@ -39,10 +39,6 @@ extension ImageSearchClient: DependencyKey {
 		)
 	}
 	
-	public static var testValue: ImageSearchClient {
-		return ImageSearchClient()
-	}
-  
   public static var previewValue: ImageSearchClient {
     return ImageSearchClient { query in
       if query == "에스파" {
@@ -60,6 +56,10 @@ extension ImageSearchClient: DependencyKey {
       }
     }
   }
+  
+	public static var testValue: ImageSearchClient {
+		return ImageSearchClient()
+	}
 }
 
 extension DependencyValues {
