@@ -90,10 +90,6 @@ struct RecipeDetailView: View {
 								RecipeTile(name: relatedRecipe.name, imageURLString: relatedRecipe.imageURLString)
 							}
 						)
-						
-//						NavigationLink(state: NavigationFeature.Path.State.recipeDetail(.init(recipe: relatedRecipe))) {
-//							RecipeTile(name: relatedRecipe.name, imageURLString: relatedRecipe.imageURLString)
-//						}
 					}
         }
       }
